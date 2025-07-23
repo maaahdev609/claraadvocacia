@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara Advocacia - Justiça com Estratégia</title>
+    <meta name="description" content="Escritório de advocacia especializado em soluções jurídicas estratégicas e personalizadas.">
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --clara-black: #0D0D0D;
+            --clara-beige: #f5f1e8;
+            --clara-rose: #e8d5d5;
+            --clara-gold: #d4af37;
+            --clara-cream: #faf8f3;
+            --clara-dark-rose: #c9a9a9;
+            --clara-pink-hover: #D49A9A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #0D0D0D;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Padrão de textura sutil no fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(232, 213, 213, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        /* Elementos decorativos */
+        .decorative-lines {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .decorative-lines::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--clara-gold), transparent);
+            opacity: 0.3;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .decorative-lines::after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            right: 15%;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--clara-rose), transparent);
+            opacity: 0.2;
+            animation: shimmer 4s ease-in-out infinite reverse;
+        }
+
+        /* Logo com efeitos sofisticados */
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 6px 20px rgba(212, 175, 55, 0.2));
+        }
+
+        .logo img {
+            width: 160px;
+            height: auto;
+        }
+
+        /* Layout principal */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Imagem da advogada com efeitos */
+        .lawyer-image {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .lawyer-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(212, 175, 55, 0.05) 30%,
+                transparent 70%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .lawyer-image img {
+            height: 100vh;
+            width: auto;
+            object-fit: cover;
+            object-position: bottom;
+            filter: contrast(1.1) brightness(1.05);
+            transition: all 0.5s ease;
+        }
+
+        /* Seção da frase com design sofisticado */
+        .quote-section {
+            margin-left: auto;
+            margin-right: 60px;
+            z-index: 20;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -40px;
+            right: -20px;
+            font-size: 120px;
+            color: var(--clara-gold);
+            opacity: 0.15;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            z-index: -1;
+        }
+
+        .quote-container {
+            background: linear-gradient(
+                135deg,
+                rgba(245, 241, 232, 0.08) 0%,
+                rgba(232, 213, 213, 0.05) 100%
+            );
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 241, 232, 0.1);
+            border-radius: 20px;
+            padding: 40px 35px;
+            position: relative;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--clara-gold),
+                transparent
+            );
+            opacity: 0.6;
+        }
+
+        .quote-text {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            color: var(--clara-beige);
+            font-weight: 500;
+            font-style: italic;
+            text-align: right;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .quote-highlight {
+            color: var(--clara-rose);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .quote-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--clara-gold), var(--clara-rose));
+            opacity: 0.4;
+            border-radius: 1px;
+        }
+
+        /* Overlay sofisticado */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at top right, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(232, 213, 213, 0.06) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 30%, rgba(0,0,0,0.6) 100%);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        /* Partículas flutuantes */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--clara-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 80%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 85%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 40%; left: 90%; animation-delay: 4s; }
+
+        /* Animações */
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.2; transform: scaleX(1); }
+            50% { opacity: 0.6; transform: scaleX(1.2); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+        }
+
+        .logo {
+            animation: fadeInDown 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .quote-section {
+            animation: fadeInRight 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+        }
+
+        .lawyer-image {
+            animation: fadeInLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsividade para tablets */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .logo {
+                top: 32px;
+                left: 32px;
+            }
+
+            .logo img {
+                width: 140px;
+            }
+
+            .quote-section {
+                margin-right: 40px;
+                max-width: 500px;
+            }
+
+            .quote-text {
+                font-size: 2.2rem;
+            }
+
+            .quote-container {
+                padding: 30px 25px;
+            }
+        }
+
+        /* Responsividade para desktop grande */
+        @media (min-width: 1024px) {
+            .quote-text {
+                font-size: 3.2rem;
+            }
+
+            .quote-section {
+                margin-right: 80px;
+            }
+
+            .logo img {
+                width: 180px;
+            }
+        }
+
+        /* Responsividade para mobile */
+        @media (max-width: 767px) {
+            body {
+                background: #0D0D0D;
+            }
+
+            .main-content {
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 120px 0 40px 0;
+            }
+
+            .lawyer-image {
+                position: relative;
+                height: 50vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .lawyer-image img {
+                height: 50vh;
+                width: auto;
+                max-width: 90%;
+            }
+
+            .quote-section {
+                margin: 0 20px;
+                text-align: center;
+                max-width: none;
+            }
+
+            .quote-container {
+                padding: 25px 20px;
+                border-radius: 15px;
+            }
+
+            .quote-text {
+                font-size: 1.6rem;
+                line-height: 1.4;
+                text-align: center;
+            }
+
+            .quote-section::before {
+                top: -25px;
+                right: 10px;
+                font-size: 80px;
+            }
+
+            .logo {
+                top: 20px;
+                left: 20px;
+            }
+
+            .logo img {
+                width: 110px;
+            }
+
+            .decorative-lines::before,
+            .decorative-lines::after {
+                display: none;
+            }
+        }
+
+        /* Efeitos de hover para interatividade */
+        .quote-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        /* Cursor personalizado */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23d4af37" stroke-width="1"/></svg>'), auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Elementos decorativos -->
+        <div class="decorative-lines"></div>
+        
+        <!-- Partículas flutuantes -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Logo no canto superior esquerdo -->
+        <div class="logo">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LogotipoClaraAdvocacia-eTjWUyLJLAShdB67xvNblggzXVSBEv.png" alt="Clara Advocacia" loading="eager">
+        </div>
+
+        <!-- Container principal -->
+        <div class="main-content">
+            <!-- Imagem da advogada - lado esquerdo -->
+            <div class="lawyer-image">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ClaraAd-T4760ZqJoDN40WiYhLKcrI4jJarwSP.png" alt="Advogada Clara" loading="eager">
+            </div>
+
+            <!-- Frase de impacto - lado direito -->
+            <div class="quote-section">
+                <div class="quote-container">
+                    <blockquote>
+                        <p class="quote-text">
+                            Justiça não se busca com sorte. <span class="quote-highlight">Se conquista com estratégia.</span>
+                        </p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay sofisticado -->
+        <div class="overlay"></div>
+    </div>
+
+    <script>
+        // Animações e interatividade avançada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efeito parallax sutil
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.lawyer-image');
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            });
+
+            // Efeito de mouse seguindo cursor
+            document.addEventListener('mousemove', function(e) {
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index + 1) * 0.02;
+                    const x = e.clientX * speed;
+                    const y = e.clientY * speed;
+                    
+                    setTimeout(() => {
+                        particle.style.transform = `translate(${x}px, ${y}px)`;
+                    }, index * 100);
+                });
+            });
+
+            // Animação de digitação para a frase
+            const quoteText = document.querySelector('.quote-text');
+            const originalText = quoteText.innerHTML;
+            quoteText.innerHTML = '';
+            
+            setTimeout(() => {
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < originalText.length) {
+                        quoteText.innerHTML = originalText.slice(0, i + 1);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                };
+                typeWriter();
+            }, 1000);
+
+            // Otimização de performance para imagens
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                    this.style.filter = 'contrast(1.1) brightness(1.05)';
+                });
+            });
+        });
+
+        // Responsividade dinâmica
+        function adjustLayout() {
+            const quote = document.querySelector('.quote-text');
+            const container = document.querySelector('.quote-container');
+            const screenWidth = window.innerWidth;
+            
+            if (screenWidth < 480) {
+                quote.style.fontSize = '1.4rem';
+                container.style.padding = '20px 15px';
+            } else if (screenWidth < 640) {
+                quote.style.fontSize = '1.6rem';
+                container.style.padding = '25px 20px';
+            }
+        }
+
+        window.addEventListener('resize', adjustLayout);
+        adjustLayout();
+    </script>
+</body>
+</html>

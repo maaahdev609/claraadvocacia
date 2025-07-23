@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: "Playfair Display", serif;
+  --light-pink: #f2a6b3;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  scroll-behavior: smooth;
+}
+
+/* Scroll suave e natural */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Transições suaves para elementos */
+section {
+  scroll-margin-top: 0;
+}
+
+/* Melhorar performance do scroll */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Hero text positioning fixes */
+.hero-text-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 2rem;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero-text-container h1,
+.hero-text-container h2 {
+  max-width: 100%;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Unified phrase container */
+.unified-phrase {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  line-height: 1.1;
+}
+
+.typewriter-line {
+  display: inline-block;
+  min-height: 1.2em;
+}
+
+.static-line {
+  display: inline-block;
+}
+
+/* Services hover improvements */
+.service-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(242, 166, 179, 0.2);
+  border-color: rgba(242, 166, 179, 0.4);
+}
+
+.service-card:focus-visible {
+  outline: 2px solid var(--light-pink);
+  outline-offset: 2px;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+/* Service card hover effects with pink color */
+.service-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(242, 166, 179, 0.2);
+}
+
+.service-card:focus-visible {
+  outline: 2px solid var(--light-pink);
+  outline-offset: 2px;
+}
+
+/* Enhanced contrast for bottom row service cards */
+.service-card-bottom:hover .service-title {
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 640px) {
+  .hero-text-container {
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .hero-text-container h1,
+  .hero-text-container h2 {
+    font-size: clamp(1.8rem, 7vw, 3rem) !important;
+  }
+
+  .unified-phrase {
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text-container {
+    padding: 1.5rem;
+  }
+
+  .hero-text-container h1,
+  .hero-text-container h2 {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+  }
+
+  .text-responsive {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text-container {
+    padding: 0.75rem;
+  }
+
+  .hero-text-container h1,
+  .hero-text-container h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+}
+
+/* Responsividade para services grid */
+@media (max-width: 1024px) {
+  .service-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Garantir que não haja overflow horizontal */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+  .hero-text-container {
+    padding: 0.5rem;
+  }
+
+  .service-card div {
+    padding: 1rem !important;
+  }
+
+  .service-title {
+    font-size: 1.25rem !important;
+  }
+}

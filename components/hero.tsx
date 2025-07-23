@@ -2,28 +2,11 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from "@react-three/drei"
 import Image from "next/image"
 import { TypewriterEffect } from "./typewriter-effect"
 
-function AnimatedSphere() {
-  return (
-    <Float speed={1.4} rotationIntensity={1} floatIntensity={2}>
-      <Sphere args={[1, 100, 200]} scale={2}>
-        <MeshDistortMaterial
-          color="#c9b275"
-          attach="material"
-          distort={0.3}
-          speed={1.5}
-          roughness={0.4}
-          transparent
-          opacity={0.1}
-        />
-      </Sphere>
-    </Float>
-  )
-}
+import dynamic from "next/dynamic"
+const HeroCanvas = dynamic(() => import("./hero-canvas"), { ssr: false })
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -39,12 +22,7 @@ export function Hero() {
     <section id="home" ref={containerRef} className="relative min-h-screen overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <AnimatedSphere />
-          <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
-        </Canvas>
+        <HeroCanvas />
       </div>
 
       {/* Gradient Overlay */}

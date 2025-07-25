@@ -12,8 +12,12 @@ export function Particles() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+
+    resizeCanvas()
 
     const particles: Array<{
       x: number
@@ -25,14 +29,14 @@ export function Particles() {
     }> = []
 
     // Create particles
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.1,
+        opacity: Math.random() * 0.3 + 0.1,
       })
     }
 
@@ -59,17 +63,12 @@ export function Particles() {
 
     animate()
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", resizeCanvas)
 
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener("resize", resizeCanvas)
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-30" />
 }

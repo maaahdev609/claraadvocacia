@@ -7,8 +7,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ["localhost"],
     unoptimized: true,
   },
+  trailingSlash: true,
+  output: "export",
 }
 
-export default nextConfig
+module.exports = nextConfig

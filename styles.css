@@ -1369,6 +1369,26 @@ body {
   }
 }
 
+/* Ajustes específicos para mobile - remove a caixa da foto */
+@media (max-width: 767px) {
+  .image-wrapper {
+    background: none; /* Remove o fundo */
+    backdrop-filter: none; /* Remove o blur */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o padding */
+    border-radius: 0; /* Remove o border-radius */
+  }
+
+  .hero-img {
+    width: 100%; /* Largura total no mobile */
+    border-radius: var(--radius-xl); /* Mantém apenas o border-radius da imagem */
+  }
+
+  .image-glow {
+    display: none; /* Remove o efeito de brilho no mobile */
+  }
+}
+
 /* Melhorias na seção de contato - Informações de Contato */
 .contact-items {
   display: flex;

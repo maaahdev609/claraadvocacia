@@ -118,7 +118,7 @@ export function Hero() {
                       className="hero-image-optimized"
                       priority
                       quality={95}
-                      sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 500px"
+                      sizes="(max-width: 479px) 200px, (max-width: 639px) 260px, (max-width: 767px) 300px, (max-width: 1023px) 350px, 500px"
                     />
                   </div>
                 </div>

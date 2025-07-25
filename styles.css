@@ -1559,6 +1559,83 @@ body {
     padding: var(--spacing-xs); /* Padding mínimo para dar mais espaço à imagem */
     overflow: hidden;
     display: flex;
+    align-items: flex-end; /* Alinha a imagem na parte inferior da caixa */
+    justify-content: center; /* Mantém centralizada horizontalmente */
+  }
+
+  .hero-img {
+    width: 98%; /* Quase toda a largura da moldura */
+    height: auto;
+    border-radius: var(--radius-xl);
+    object-fit: cover;
+    object-position: center bottom; /* Posiciona a imagem focando na parte inferior */
+    margin: 0 auto;
+    display: block;
+  }
+
+  .image-glow {
+    /* Mantém o efeito de brilho no mobile para dar mais presença */
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(45deg, rgba(168, 162, 158, 0.15), rgba(242, 166, 179, 0.15));
+    border-radius: var(--radius-3xl);
+    filter: blur(15px);
+    animation: pulse 4s ease-in-out infinite;
+  }
+}
+
+/* Ajustes para mobile pequeno */
+@media (max-width: 480px) {
+  .image-container {
+    max-width: 280px; /* Container um pouco menor em telas muito pequenas */
+  }
+
+  .image-wrapper {
+    padding: 4px; /* Padding ainda menor para maximizar a imagem */
+    align-items: flex-end; /* Garante alinhamento inferior */
+  }
+
+  .hero-img {
+    width: 99%; /* Máxima ocupação da moldura */
+    object-position: center bottom; /* Foca na parte inferior da imagem */
+  }
+}
+
+/* Ajustes para mobile médio */
+@media (min-width: 481px) and (max-width: 640px) {
+  .image-container {
+    max-width: 350px; /* Container maior para telas médias */
+  }
+
+  .image-wrapper {
+    padding: var(--spacing-xs);
+    align-items: flex-end; /* Alinha na parte inferior */
+  }
+
+  .hero-img {
+    width: 97%; /* Boa ocupação da moldura */
+    object-position: center bottom; /* Foca na parte inferior */
+  }
+}
+
+/* Ajustes específicos para mobile - imagem com mais presença visual */
+@media (max-width: 767px) {
+  .image-container {
+    max-width: 320px; /* Aumenta o container da imagem */
+    margin: 0 auto;
+  }
+
+  .image-wrapper {
+    background: linear-gradient(135deg, rgba(245, 241, 232, 0.08), rgba(242, 166, 179, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-3xl);
+    padding: var(--spacing-xs); /* Padding mínimo para dar mais espaço à imagem */
+    overflow: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
   }

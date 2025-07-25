@@ -1099,7 +1099,7 @@ body {
   /* Hero Section Mobile Layout */
   .hero-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-2xl); /* Espaçamento uniforme entre elementos */
     text-align: center;
   }
 
@@ -1108,22 +1108,23 @@ body {
     order: 1;
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-lg); /* Espaçamento uniforme entre todos os elementos de texto */
   }
 
   .hero-badge {
     order: 1;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0; /* Remove margin individual, usa gap do container */
   }
 
   .hero-title {
     order: 2;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 0; /* Remove margin individual, usa gap do container */
     font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 
   .hero-image {
     order: 3;
-    margin: var(--spacing-lg) 0;
+    margin: 0; /* Remove margin individual, usa gap do container */
   }
 
   .hero-description {
@@ -1365,7 +1366,8 @@ body {
   }
 
   .hero-img {
-    width: 98%; /* Ainda mais preenchimento no mobile */
+    width: 85%; /* Largura otimizada para mobile com mais presença visual */
+    height: auto; /* Garante que height: auto esteja ativo */
   }
 }
 
@@ -1380,7 +1382,8 @@ body {
   }
 
   .hero-img {
-    width: 100%; /* Largura total no mobile */
+    width: 85%; /* Largura otimizada para mobile */
+    height: auto; /* Garante que height: auto esteja ativo */
     border-radius: var(--radius-xl); /* Mantém apenas o border-radius da imagem */
   }
 

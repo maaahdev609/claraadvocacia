@@ -4,9 +4,34 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { TypewriterEffect } from "./typewriter-effect"
-
 import dynamic from "next/dynamic"
-const HeroCanvas = dynamic(() => import("./hero-canvas"), { ssr: false })
+
+// Dynamically import Three.js components to avoid SSR issues
+const DynamicCanvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false })
+const DynamicFloat = dynamic(() => import("@react-three/drei").then((mod) => mod.Float), { ssr: false })
+const DynamicSphere = dynamic(() => import("@react-three/drei").then((mod) => mod.Sphere), { ssr: false })
+const DynamicMeshDistortMaterial = dynamic(() => import("@react-three/drei").then((mod) => mod.MeshDistortMaterial), {
+  ssr: false,
+})
+const DynamicOrbitControls = dynamic(() => import("@react-three/drei").then((mod) => mod.OrbitControls), { ssr: false })
+
+function AnimatedSphere() {
+  return (
+    <DynamicFloat speed={1.4} rotationIntensity={1} floatIntensity={2}>
+      <DynamicSphere args={[1, 100, 200]} scale={2}>
+        <DynamicMeshDistortMaterial
+          color="#c9b275"
+          attach="material"
+          distort={0.3}
+          speed={1.5}
+          roughness={0.4}
+          transparent
+          opacity={0.1}
+        />
+      </DynamicSphere>
+    </DynamicFloat>
+  )
+}
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -22,7 +47,12 @@ export function Hero() {
     <section id="home" ref={containerRef} className="relative min-h-screen overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <HeroCanvas />
+        <DynamicCanvas camera={{ position: [0, 0, 5] }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} />
+          <AnimatedSphere />
+          <DynamicOrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
+        </DynamicCanvas>
       </div>
 
       {/* Gradient Overlay */}

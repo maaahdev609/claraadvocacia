@@ -41,7 +41,7 @@ export function Particles() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      particles.forEach((particle, index) => {
+      particles.forEach((particle) => {
         particle.x += particle.vx
         particle.y += particle.vy
 
@@ -50,25 +50,8 @@ export function Particles() {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(201, 178, 117, ${particle.opacity})`
+        ctx.fillStyle = `rgba(212, 175, 55, ${particle.opacity})`
         ctx.fill()
-
-        // Draw connections
-        particles.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
-            const dx = particle.x - otherParticle.x
-            const dy = particle.y - otherParticle.y
-            const distance = Math.sqrt(dx * dx + dy * dy)
-
-            if (distance < 100) {
-              ctx.beginPath()
-              ctx.moveTo(particle.x, particle.y)
-              ctx.lineTo(otherParticle.x, otherParticle.y)
-              ctx.strokeStyle = `rgba(201, 178, 117, ${0.1 * (1 - distance / 100)})`
-              ctx.stroke()
-            }
-          }
-        })
       })
 
       requestAnimationFrame(animate)
@@ -82,8 +65,11 @@ export function Particles() {
     }
 
     window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" style={{ opacity: 0.3 }} />
+  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 }

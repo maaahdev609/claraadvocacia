@@ -10,26 +10,20 @@
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
-    "@react-three/drei": "^9.88.0",
-    "@react-three/fiber": "^8.15.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "latest",
     "lucide-react": "^0.454.0",
     "next": "14.2.16",
-    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "shadcn": "latest",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7",
-    "three": "^0.158.0"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.158.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.2.16",

@@ -21,7 +21,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#0D0D0D]/90 to-[#0D0D0D]/80 z-10" />
 
       {/* Content */}
-      <motion.div style={{ y, opacity }} className="relative z-20 w-full">
+      <motion.div className="relative z-20 w-full">
         <div className="container-responsive">
           <div className="hero-content-responsive">
             {/* Left Side - Text Content */}
@@ -29,8 +29,8 @@ export function Hero() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
+              style={{ y, opacity }}
               className="hero-text-container space-y-4 lg:space-y-8 flex flex-col justify-center h-full order-2 lg:order-1"
-              style={{ transform: "translateY(-5%)" }}
             >
               <div className="space-y-4">
                 <motion.div
@@ -95,7 +95,9 @@ export function Hero() {
               className="relative flex justify-center lg:justify-end order-1 lg:order-2"
             >
               <div className="image-container-responsive">
+                {/* Desktop: Apply scroll effects to container */}
                 <motion.div
+                  style={{ y: window.innerWidth >= 1024 ? y : 0, opacity: window.innerWidth >= 1024 ? opacity : 1 }}
                   animate={{
                     rotate: [0, 360],
                     scale: [1, 1.1, 1],
@@ -108,7 +110,8 @@ export function Hero() {
                   className="absolute -inset-4 bg-gradient-to-r from-stone-400/20 to-rose-300/20 rounded-full blur-xl"
                 />
 
-                <div className="relative bg-gradient-to-br from-stone-200/10 to-rose-200/10 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-stone-200/20">
+                {/* Image Container - No scroll effects on mobile */}
+                <div className="hero-image-container relative bg-gradient-to-br from-stone-200/10 to-rose-200/10 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-stone-200/20">
                   <div className="hero-image-wrapper">
                     <Image
                       src="/images/ClaraAd.png"

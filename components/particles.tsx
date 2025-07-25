@@ -1,11 +1,18 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isClient) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -13,8 +20,10 @@ export function Particles() {
     if (!ctx) return
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      if (typeof window !== "undefined") {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      }
     }
 
     resizeCanvas()
@@ -63,12 +72,15 @@ export function Particles() {
 
     animate()
 
-    window.addEventListener("resize", resizeCanvas)
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas)
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", resizeCanvas)
+      return () => window.removeEventListener("resize", resizeCanvas)
     }
-  }, [])
+  }, [isClient])
+
+  if (!isClient) {
+    return null
+  }
 
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-30" />
 }

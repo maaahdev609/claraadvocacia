@@ -3,13 +3,13 @@ import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Contact } from "@/components/contact"
 import { BackgroundEffects } from "@/components/background-effects"
-import { ScrollIndicator } from "@/components/scroll-indicator"
+import { ClientComponents } from "@/components/client-components"
 
 export default function Home() {
   return (
     <main className="relative">
       <BackgroundEffects />
-      <ScrollIndicator />
+      <ClientComponents />
       <Hero />
       <About />
       <Services />

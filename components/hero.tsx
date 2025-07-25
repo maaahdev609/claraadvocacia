@@ -1,12 +1,15 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useEffect, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { TypewriterEffect } from "./typewriter-effect"
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isClient, setIsClient] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -14,6 +17,26 @@ export function Hero() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+
+  useEffect(() => {
+    setIsClient(true)
+
+    const checkIsDesktop = () => {
+      if (typeof window !== "undefined") {
+        setIsDesktop(window.innerWidth >= 1024)
+      }
+    }
+
+    checkIsDesktop()
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", checkIsDesktop)
+      return () => window.removeEventListener("resize", checkIsDesktop)
+    }
+  }, [])
+
+  // Don't apply scroll effects until client-side hydration is complete
+  const shouldApplyScrollEffects = isClient && isDesktop
 
   return (
     <section id="home" ref={containerRef} className="hero-section-responsive relative overflow-hidden bg-[#0D0D0D]">
@@ -29,7 +52,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              style={{ y, opacity }}
+              style={shouldApplyScrollEffects ? { y, opacity } : {}}
               className="hero-text-container space-y-4 lg:space-y-8 flex flex-col justify-center h-full order-2 lg:order-1"
             >
               <div className="space-y-4">
@@ -95,9 +118,8 @@ export function Hero() {
               className="relative flex justify-center lg:justify-end order-1 lg:order-2"
             >
               <div className="image-container-responsive">
-                {/* Desktop: Apply scroll effects to container */}
+                {/* Background animation - always visible */}
                 <motion.div
-                  style={{ y: window.innerWidth >= 1024 ? y : 0, opacity: window.innerWidth >= 1024 ? opacity : 1 }}
                   animate={{
                     rotate: [0, 360],
                     scale: [1, 1.1, 1],
@@ -110,8 +132,11 @@ export function Hero() {
                   className="absolute -inset-4 bg-gradient-to-r from-stone-400/20 to-rose-300/20 rounded-full blur-xl"
                 />
 
-                {/* Image Container - No scroll effects on mobile */}
-                <div className="hero-image-container relative bg-gradient-to-br from-stone-200/10 to-rose-200/10 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-stone-200/20">
+                {/* Image Container - Conditional scroll effects */}
+                <motion.div
+                  style={shouldApplyScrollEffects ? { y, opacity } : {}}
+                  className="hero-image-container relative bg-gradient-to-br from-stone-200/10 to-rose-200/10 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-stone-200/20"
+                >
                   <div className="hero-image-wrapper">
                     <Image
                       src="/images/ClaraAd.png"
@@ -124,7 +149,7 @@ export function Hero() {
                       sizes="(max-width: 479px) 200px, (max-width: 639px) 260px, (max-width: 767px) 300px, (max-width: 1023px) 350px, 500px"
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>

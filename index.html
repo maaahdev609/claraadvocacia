@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara Advocacia - Justiça com Estratégia</title>
+    <meta name="description" content="Mais de uma década defendendo seus direitos com estratégias jurídicas personalizadas e resultados excepcionais.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen" aria-hidden="true">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="./images/LogotipoClaraAdvocacia.png" alt="Clara Advocacia" class="loading-logo-img">
+            </div>
+            <div class="loading-spinner" aria-label="Carregando conteúdo"></div>
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-label="Progresso da página"></div>
+
+    <!-- Background Effects -->
+    <div class="background-effects" aria-hidden="true">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
+        <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Text Content -->
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span>Excelência Jurídica</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <div class="typewriter-container">
+                                <span id="typewriter-text" class="typewriter-text" aria-live="polite"></span>
+                                <span class="typewriter-cursor" aria-hidden="true">|</span>
+                            </div>
+                            <div class="static-text">
+                                <span class="gradient-text">Se conquista com estratégia.</span>
+                            </div>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Mais de uma década defendendo seus direitos com estratégias jurídicas personalizadas e resultados excepcionais.
+                        </p>
+                    </div>
+
+                    <!-- Image Content -->
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <div class="image-glow" aria-hidden="true"></div>
+                            <div class="image-wrapper">
+                                <img src="./images/ClaraAd.png" alt="Advogada Clara - Especialista em direito com mais de 15 anos de experiência" class="hero-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator" aria-hidden="true">
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Sobre Clara Advocacia</span>
+                    <h2 class="section-title">
+                        Excelência em <span class="gradient-text">Advocacia</span>
+                    </h2>
+                    <p class="section-description">
+                        Fundado com o compromisso de oferecer soluções jurídicas inovadoras e personalizadas, nosso escritório combina tradição, experiência e tecnologia para garantir os melhores resultados.
+                    </p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" aria-hidden="true">⚖️</div>
+                        <div class="stat-value">500+</div>
+                        <div class="stat-label">Casos Vencidos</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" aria-hidden="true">⭐</div>
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" aria-hidden="true">👥</div>
+                        <div class="stat-value">1000+</div>
+                        <div class="stat-label">Clientes Satisfeitos</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" aria-hidden="true">🕐</div>
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Suporte Disponível</div>
+                    </div>
+                </div>
+
+                <!-- Mission Statement -->
+                <div class="mission-card">
+                    <div class="mission-content">
+                        <div class="mission-text">
+                            <h3 class="mission-title">
+                                Nossa <span class="gradient-text">Missão</span>
+                            </h3>
+                            <p class="mission-description">
+                                Proporcionar assessoria jurídica de excelência, construindo relacionamentos duradouros baseados na confiança, transparência e resultados efetivos.
+                            </p>
+                            <ul class="mission-list">
+                                <li>Atendimento personalizado e humanizado</li>
+                                <li>Estratégias jurídicas inovadoras</li>
+                                <li>Transparência em todos os processos</li>
+                                <li>Compromisso com resultados excepcionais</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mission-highlight">
+                            <div class="highlight-icon" aria-hidden="true">⚖️</div>
+                            <h4 class="highlight-title">Valores Fundamentais</h4>
+                            <p class="highlight-description">
+                                Ética, integridade e excelência são os pilares que sustentam cada decisão e ação em nosso escritório, garantindo sempre o melhor para nossos clientes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Nossos Serviços</span>
+                    <h2 class="section-title">
+                        Áreas de <span class="gradient-text">Atuação</span>
+                    </h2>
+                    <p class="section-description">
+                        Oferecemos soluções jurídicas completas e especializadas para atender todas as suas necessidades legais com excelência e dedicação.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">💼</div>
+                        <h3 class="service-title">Direito Empresarial</h3>
+                        <p class="service-description">Consultoria completa para empresas de todos os portes</p>
+                        <ul class="service-features">
+                            <li>Constituição de empresas</li>
+                            <li>Contratos comerciais</li>
+                            <li>Compliance corporativo</li>
+                            <li>Fusões e aquisições</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito Empresarial via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">🏠</div>
+                        <h3 class="service-title">Direito Imobiliário</h3>
+                        <p class="service-description">Segurança jurídica em transações imobiliárias</p>
+                        <ul class="service-features">
+                            <li>Compra e venda de imóveis</li>
+                            <li>Regularização fundiária</li>
+                            <li>Contratos de locação</li>
+                            <li>Usucapião</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito Imobiliário via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+                        <h3 class="service-title">Direito de Família</h3>
+                        <p class="service-description">Acompanhamento sensível em questões familiares</p>
+                        <ul class="service-features">
+                            <li>Divórcio consensual</li>
+                            <li>Guarda de menores</li>
+                            <li>Pensão alimentícia</li>
+                            <li>Inventário e partilha</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito de Família via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">🏢</div>
+                        <h3 class="service-title">Direito Trabalhista</h3>
+                        <p class="service-description">Defesa de direitos trabalhistas e previdenciários</p>
+                        <ul class="service-features">
+                            <li>Ações trabalhistas</li>
+                            <li>Rescisões contratuais</li>
+                            <li>Benefícios previdenciários</li>
+                            <li>Assédio moral</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito Trabalhista via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">📄</div>
+                        <h3 class="service-title">Direito Civil</h3>
+                        <p class="service-description">Soluções para questões do dia a dia</p>
+                        <ul class="service-features">
+                            <li>Responsabilidade civil</li>
+                            <li>Contratos em geral</li>
+                            <li>Danos morais</li>
+                            <li>Direito do consumidor</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito Civil via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon" aria-hidden="true">🛡️</div>
+                        <h3 class="service-title">Direito Criminal</h3>
+                        <p class="service-description">Defesa criminal especializada e estratégica</p>
+                        <ul class="service-features">
+                            <li>Defesa criminal</li>
+                            <li>Habeas corpus</li>
+                            <li>Recursos criminais</li>
+                            <li>Crimes econômicos</li>
+                        </ul>
+                        <a href="https://wa.me/5517996492656" target="_blank" rel="noopener noreferrer" class="service-link" aria-label="Saiba mais sobre Direito Criminal via WhatsApp">
+                            Saiba mais →
+                        </a>
+                    </article>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="services-cta">
+                    <h3 class="cta-title">Precisa de Ajuda Jurídica?</h3>
+                    <p class="cta-description">
+                        Nossa equipe está pronta para analisar seu caso e oferecer a melhor estratégia jurídica.
+                    </p>
+                    <button class="cta-button" onclick="window.open('https://wa.me/5517996492656', '_blank')" aria-label="Agendar consulta gratuita via WhatsApp">
+                        Agendar Consulta Gratuita
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Entre em Contato</span>
+                    <div class="typewriter-contact-container">
+                        <span id="typewriter-contact" class="typewriter-contact" aria-live="polite"></span>
+                        <span class="typewriter-cursor-contact" aria-hidden="true">|</span>
+                    </div>
+                    <p class="section-description">
+                        Estamos prontos para ouvir seu caso e oferecer a melhor solução jurídica. Entre em contato conosco e agende sua consulta gratuita.
+                    </p>
+                </div>
+
+                <div class="contact-content">
+                    <!-- Logo Block -->
+                    <div class="contact-logo">
+                        <div class="logo-container">
+                            <img src="./images/LogotipoClaraAdvocacia.png" alt="Clara Advocacia - Logotipo oficial do escritório" class="contact-logo-img">
+                            <div class="floating-particle particle-1" aria-hidden="true"></div>
+                            <div class="floating-particle particle-2" aria-hidden="true"></div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h3 class="contact-info-title">Informações de Contato</h3>
+                        
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">📞</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-title">Telefone</h4>
+                                    <p class="contact-main">(11) 9999-9999</p>
+                                    <p class="contact-sub">WhatsApp disponível</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">✉️</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-title">E-mail</h4>
+                                    <p class="contact-main">contato@claraadvocacia.com.br</p>
+                                    <p class="contact-sub">Resposta em até 2h</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">📍</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-title">Endereço</h4>
+                                    <p class="contact-main">Av. Paulista, 1000 - São Paulo/SP</p>
+                                    <p class="contact-sub">Próximo ao metrô</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">🕐</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-title">Horário</h4>
+                                    <p class="contact-main">Segunda à Sexta: 8h às 18h</p>
+                                    <p class="contact-sub">Sábado: 8h às 12h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Logo and Description -->
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <img src="./images/LogotipoClaraAdvocacia.png" alt="Clara Advocacia - Logotipo" class="footer-logo-img">
+                        <p class="footer-description">
+                            Mais de 15 anos oferecendo soluções jurídicas estratégicas e personalizadas. Seu sucesso é nossa prioridade.
+                        </p>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Instagram da Clara Advocacia">📷</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn da Clara Advocacia">💼</a>
+                        <a href="#" class="social-link" aria-label="Facebook da Clara Advocacia">📘</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <nav class="footer-links">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Contact Info -->
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact-items">
+                        <div class="footer-contact-item">
+                            <span aria-hidden="true">📞</span>
+                            <div>
+                                <p>(11) 9999-9999</p>
+                                <span>WhatsApp disponível</span>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span aria-hidden="true">✉️</span>
+                            <div>
+                                <p>contato@claraadvocacia.com.br</p>
+                                <span>Resposta em até 2h</span>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span aria-hidden="true">📍</span>
+                            <div>
+                                <p>Av. Paulista, 1000</p>
+                                <span>São Paulo/SP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Clara Advocacia. Todos os direitos reservados.
+                </p>
+                <button class="scroll-to-top" id="scroll-to-top" aria-label="Voltar ao topo da página">↑</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./script.js" defer></script>
+</body>
+</html>

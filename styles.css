@@ -1366,7 +1366,7 @@ body {
   }
 
   .hero-img {
-    width: 85%; /* Largura otimizada para mobile com mais presença visual */
+    width: 95%; /* Aumenta de 85% para 95% - mais presença visual */
     height: auto; /* Garante que height: auto esteja ativo */
   }
 }
@@ -1382,7 +1382,7 @@ body {
   }
 
   .hero-img {
-    width: 85%; /* Largura otimizada para mobile */
+    width: 95%; /* Aumenta de 85% para 95% - imagem quase ocupando toda a largura */
     height: auto; /* Garante que height: auto esteja ativo */
     border-radius: var(--radius-xl); /* Mantém apenas o border-radius da imagem */
   }

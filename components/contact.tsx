@@ -8,7 +8,11 @@ import { TypewriterContact } from "./typewriter-contact"
 
 export function Contact() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px",
+    amount: 0.2,
+  })
 
   const contactInfo = [
     {
@@ -49,9 +53,9 @@ export function Contact() {
       <div className="container-responsive relative z-10">
         {/* Header with Typewriter Effect */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-8 lg:mb-12"
         >
           <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-responsive-sm font-medium tracking-wider uppercase mb-4 block">
@@ -70,9 +74,9 @@ export function Contact() {
         <div className="contact-grid grid items-center justify-center max-w-6xl mx-auto">
           {/* Logo Block */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="flex justify-center items-center order-2 lg:order-1"
           >
             <div className="relative">
@@ -84,14 +88,18 @@ export function Contact() {
                 transition={{ duration: 0.3 }}
                 className="relative"
               >
-                <Image
-                  src="/images/LogotipoClaraAdvocacia.png"
-                  alt="Clara Advocacia Logo"
-                  width={400}
-                  height={600}
-                  className="contact-logo w-full h-auto object-contain"
-                  priority
-                />
+                <div className="contact-logo-wrapper">
+                  <Image
+                    src="/images/LogotipoClaraAdvocacia.png"
+                    alt="Clara Advocacia Logo"
+                    width={400}
+                    height={600}
+                    className="contact-logo-optimized"
+                    priority
+                    quality={95}
+                    sizes="(max-width: 640px) 150px, (max-width: 768px) 180px, (max-width: 1024px) 250px, 320px"
+                  />
+                </div>
               </motion.div>
 
               {/* Floating particles around logo */}
@@ -126,9 +134,9 @@ export function Contact() {
 
           {/* Contact Information Block */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col justify-center order-1 lg:order-2"
           >
             <div className="text-center lg:text-left">
@@ -138,13 +146,18 @@ export function Contact() {
                 {contactInfo.map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.6 + index * 0.1,
+                      ease: "easeOut",
+                    }}
                     className="flex items-start gap-3 lg:gap-4 group justify-center lg:justify-start"
                   >
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.2 }}
                       className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-stone-400/20 to-rose-300/20 rounded-xl flex items-center justify-center border border-stone-200/20 group-hover:border-stone-400/50 transition-all duration-300 flex-shrink-0"
                     >
                       <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-stone-400" />

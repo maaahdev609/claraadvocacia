@@ -6,7 +6,11 @@ import { Briefcase, Home, Users, Building, FileText, Shield, ArrowRight, CheckCi
 
 export function Services() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px",
+    amount: 0.1,
+  })
   const [activeService, setActiveService] = useState(0)
 
   // Nova cor rosa claro para todos os títulos e ícones
@@ -64,9 +68,9 @@ export function Services() {
 
       <div className="container-responsive relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-8 lg:mb-20"
         >
           <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-responsive-sm font-medium tracking-wider uppercase mb-4 block">
@@ -87,9 +91,13 @@ export function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
               onHoverStart={() => setActiveService(index)}
               className={`service-card group ${index >= 3 ? "service-card-bottom" : ""}`}
               tabIndex={0}
@@ -126,9 +134,13 @@ export function Services() {
                   {service.features.map((feature, featureIndex) => (
                     <motion.li
                       key={featureIndex}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -15 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.5 + featureIndex * 0.1 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.3 + featureIndex * 0.1,
+                        ease: "easeOut",
+                      }}
                       className="flex items-center text-responsive-sm text-stone-200/70"
                     >
                       <CheckCircle className="w-3 h-3 lg:w-4 lg:h-4 text-green-400 mr-2 lg:mr-3 flex-shrink-0" />
@@ -142,6 +154,7 @@ export function Services() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
                   className="flex items-center text-responsive-sm text-stone-300 font-medium group-hover:text-stone-200 transition-colors duration-300"
                 >
                   Saiba mais
@@ -154,9 +167,9 @@ export function Services() {
 
         {/* CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           className="text-center"
         >
           <div className="bg-gradient-to-br from-stone-400/10 to-rose-300/10 backdrop-blur-sm rounded-3xl spacing-responsive-lg border border-stone-200/20">
@@ -171,6 +184,7 @@ export function Services() {
                 boxShadow: "0 20px 40px rgba(212, 154, 154, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
               className="button-responsive bg-gradient-to-r from-[#D49A9A] to-[#2B2B2B] text-white font-semibold hover:shadow-2xl transition-all duration-300"
             >
               Agendar Consulta Gratuita

@@ -13,6 +13,51 @@ body {
   font-family: Inter, sans-serif;
 }
 
+/* Hero Image Optimization */
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-optimized {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 1rem;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Contact Logo Optimization */
+.contact-logo-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-logo-optimized {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 /* Hero text positioning - Mobile First */
 .hero-text-container {
   position: relative;
@@ -57,6 +102,21 @@ body {
   transform: scale(1.02);
 }
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Mobile First - Base styles for mobile */
 @media (max-width: 479px) {
   /* Extra small phones */
@@ -88,8 +148,13 @@ body {
     gap: 1.5rem;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 150px;
+    margin: 0 auto;
+  }
+
+  .hero-image-optimized {
+    max-width: 250px;
     margin: 0 auto;
   }
 
@@ -125,8 +190,13 @@ body {
     gap: 2rem;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 180px;
+    margin: 0 auto;
+  }
+
+  .hero-image-optimized {
+    max-width: 280px;
     margin: 0 auto;
   }
 
@@ -163,8 +233,13 @@ body {
     gap: 2.5rem;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .hero-image-optimized {
+    max-width: 320px;
     margin: 0 auto;
   }
 
@@ -206,8 +281,12 @@ body {
     align-items: center;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 250px;
+  }
+
+  .hero-image-optimized {
+    max-width: 380px;
   }
 
   .stats-grid {
@@ -244,8 +323,12 @@ body {
     align-items: center;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 280px;
+  }
+
+  .hero-image-optimized {
+    max-width: 420px;
   }
 
   .stats-grid {
@@ -278,8 +361,12 @@ body {
     align-items: center;
   }
 
-  .contact-logo {
+  .contact-logo-optimized {
     max-width: 320px;
+  }
+
+  .hero-image-optimized {
+    max-width: 500px;
   }
 
   .stats-grid {
@@ -435,21 +522,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #a8a29e, #f9a8d4);
   border-radius: 4px;
-}
-
-/* Ensure no horizontal overflow */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-.container {
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 /* Responsive animations - reduce motion on mobile for performance */
@@ -644,4 +716,27 @@ body {
   .footer-content-responsive {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* Smooth scroll performance */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hardware acceleration for better performance */
+.hero-image-optimized,
+.contact-logo-optimized,
+.service-card,
+.typewriter-cursor {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent layout shifts */
+.hero-image-wrapper,
+.contact-logo-wrapper {
+  contain: layout style paint;
 }

@@ -109,14 +109,18 @@ export function Hero() {
                 />
 
                 <div className="relative bg-gradient-to-br from-stone-200/10 to-rose-200/10 backdrop-blur-sm rounded-3xl p-4 lg:p-8 border border-stone-200/20">
-                  <Image
-                    src="/images/ClaraAd.png"
-                    alt="Advogada Clara"
-                    width={500}
-                    height={600}
-                    className="image-responsive rounded-2xl"
-                    priority
-                  />
+                  <div className="hero-image-wrapper">
+                    <Image
+                      src="/images/ClaraAd.png"
+                      alt="Advogada Clara"
+                      width={500}
+                      height={600}
+                      className="hero-image-optimized"
+                      priority
+                      quality={95}
+                      sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 500px"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>

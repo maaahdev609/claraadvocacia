@@ -50,7 +50,7 @@ export function TypewriterEffect({ words, className, cursorClassName }: Typewrit
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
-        className={`inline-block w-1 h-12 bg-stone-400 ml-1 ${cursorClassName}`}
+        className={`typewriter-cursor inline-block bg-stone-400 ml-1 ${cursorClassName}`}
       />
     </div>
   )

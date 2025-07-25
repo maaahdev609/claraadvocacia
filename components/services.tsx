@@ -58,32 +58,32 @@ export function Services() {
   ]
 
   return (
-    <section id="services" ref={ref} className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section id="services" ref={ref} className="spacing-responsive-xl relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D] to-[#0D0D0D]" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-responsive relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="text-center mb-8 lg:mb-20"
         >
-          <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-sm font-medium tracking-wider uppercase mb-4 block">
+          <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-responsive-sm font-medium tracking-wider uppercase mb-4 block">
             Nossos Serviços
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-200 mb-4 sm:mb-6">
+          <h2 className="text-responsive-4xl font-bold text-stone-200 mb-4 lg:mb-6">
             Áreas de{" "}
             <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent">Atuação</span>
           </h2>
-          <p className="text-lg sm:text-xl text-stone-200/80 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-responsive-lg text-stone-200/80 max-w-3xl mx-auto leading-relaxed">
             Oferecemos soluções jurídicas completas e especializadas para atender todas as suas necessidades legais com
             excelência e dedicação.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="services-grid-responsive mb-8 lg:mb-16">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -96,20 +96,20 @@ export function Services() {
               role="button"
               aria-label={`Saiba mais sobre ${service.title}`}
             >
-              <div className="bg-gradient-to-br from-stone-200/5 to-rose-200/5 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-stone-200/10 transition-all duration-300 h-full">
+              <div className="bg-gradient-to-br from-stone-200/5 to-rose-200/5 backdrop-blur-sm rounded-3xl spacing-responsive-lg border border-stone-200/10 transition-all duration-300 h-full">
                 <motion.div
-                  className="service-icon w-14 h-14 sm:w-16 sm:h-16 mb-4 sm:mb-6 rounded-2xl flex items-center justify-center transition-transform duration-300"
+                  className="service-icon w-12 h-12 lg:w-16 lg:h-16 mb-4 lg:mb-6 rounded-2xl flex items-center justify-center transition-transform duration-300"
                   style={{
                     backgroundColor: "rgba(242, 166, 179, 0.08)",
                     boxShadow: "0 0 15px rgba(242, 166, 179, 0.2)",
                     opacity: 0.9,
                   }}
                 >
-                  <service.icon className="w-7 h-7 sm:w-8 sm:h-8" style={{ color: lightPinkColor }} />
+                  <service.icon className="w-6 h-6 lg:w-8 lg:h-8" style={{ color: lightPinkColor }} />
                 </motion.div>
 
                 <h3
-                  className="service-title text-xl sm:text-2xl font-bold mb-3 sm:mb-4 transition-colors duration-300"
+                  className="service-title text-responsive-xl font-bold mb-3 lg:mb-4 transition-colors duration-300"
                   style={{
                     color: lightPinkColor,
                     textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
@@ -118,20 +118,20 @@ export function Services() {
                   {service.title}
                 </h3>
 
-                <p className="text-stone-200/80 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                <p className="text-responsive-base text-stone-200/80 mb-4 lg:mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                <ul className="space-y-2 lg:space-y-3 mb-4 lg:mb-6">
                   {service.features.map((feature, featureIndex) => (
                     <motion.li
                       key={featureIndex}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.5 + featureIndex * 0.1 }}
-                      className="flex items-center text-stone-200/70 text-sm sm:text-base"
+                      className="flex items-center text-responsive-sm text-stone-200/70"
                     >
-                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 mr-2 sm:mr-3 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 lg:w-4 lg:h-4 text-green-400 mr-2 lg:mr-3 flex-shrink-0" />
                       {feature}
                     </motion.li>
                   ))}
@@ -142,10 +142,10 @@ export function Services() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
-                  className="flex items-center text-stone-300 font-medium group-hover:text-stone-200 transition-colors duration-300 text-sm sm:text-base"
+                  className="flex items-center text-responsive-sm text-stone-300 font-medium group-hover:text-stone-200 transition-colors duration-300"
                 >
                   Saiba mais
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+                  <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-2" />
                 </motion.a>
               </div>
             </motion.div>
@@ -159,11 +159,9 @@ export function Services() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-br from-stone-400/10 to-rose-300/10 backdrop-blur-sm rounded-3xl p-8 sm:p-12 border border-stone-200/20 mx-4 sm:mx-0">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-200 mb-4 sm:mb-6">
-              Precisa de Ajuda Jurídica?
-            </h3>
-            <p className="text-lg sm:text-xl text-stone-200/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+          <div className="bg-gradient-to-br from-stone-400/10 to-rose-300/10 backdrop-blur-sm rounded-3xl spacing-responsive-lg border border-stone-200/20">
+            <h3 className="text-responsive-3xl font-bold text-stone-200 mb-4 lg:mb-6">Precisa de Ajuda Jurídica?</h3>
+            <p className="text-responsive-lg text-stone-200/80 mb-6 lg:mb-8 max-w-2xl mx-auto">
               Nossa equipe está pronta para analisar seu caso e oferecer a melhor estratégia jurídica.
             </p>
             <motion.button
@@ -173,7 +171,7 @@ export function Services() {
                 boxShadow: "0 20px 40px rgba(212, 154, 154, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#D49A9A] to-[#2B2B2B] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:shadow-2xl transition-all duration-300"
+              className="button-responsive bg-gradient-to-r from-[#D49A9A] to-[#2B2B2B] text-white font-semibold hover:shadow-2xl transition-all duration-300"
             >
               Agendar Consulta Gratuita
             </motion.button>

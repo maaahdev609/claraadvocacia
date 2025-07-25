@@ -41,43 +41,41 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-16 md:py-20 relative overflow-hidden min-h-screen flex flex-col justify-center"
+      className="contact-section-responsive relative overflow-hidden min-h-screen flex flex-col justify-center"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D] to-[#0D0D0D]" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container-responsive relative z-10">
         {/* Header with Typewriter Effect */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8 lg:mb-12"
         >
-          <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-sm font-medium tracking-wider uppercase mb-4 block">
+          <span className="bg-gradient-to-r from-stone-400 to-rose-300 bg-clip-text text-transparent text-responsive-sm font-medium tracking-wider uppercase mb-4 block">
             Entre em Contato
           </span>
-          <div className="mb-6">
-            <TypewriterContact className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight flex justify-center items-center min-h-[80px]" />
+          <div className="mb-4 lg:mb-6">
+            <TypewriterContact className="text-responsive-4xl font-bold leading-tight flex justify-center items-center min-h-[60px] lg:min-h-[80px]" />
           </div>
-          <p className="text-xl text-stone-200/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-responsive-xl text-stone-200/80 max-w-3xl mx-auto leading-relaxed">
             Estamos prontos para ouvir seu caso e oferecer a melhor solução jurídica. Entre em contato conosco e agende
             sua consulta gratuita.
           </p>
         </motion.div>
 
         {/* Main Content - Two Blocks Side by Side */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 max-w-6xl mx-auto">
+        <div className="contact-grid grid items-center justify-center max-w-6xl mx-auto">
           {/* Logo Block */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center items-center lg:flex-1 order-2 lg:order-1"
+            className="flex justify-center items-center order-2 lg:order-1"
           >
             <div className="relative">
-              {/* Animated background effect */}
-
               {/* Clean Logo - No padding, no border */}
               <motion.div
                 whileHover={{
@@ -91,7 +89,7 @@ export function Contact() {
                   alt="Clara Advocacia Logo"
                   width={400}
                   height={600}
-                  className="w-full h-auto max-w-[200px] md:max-w-[280px] lg:max-w-[280px] object-contain"
+                  className="contact-logo w-full h-auto object-contain"
                   priority
                 />
               </motion.div>
@@ -131,30 +129,30 @@ export function Contact() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col justify-center lg:flex-1 order-1 lg:order-2"
+            className="flex flex-col justify-center order-1 lg:order-2"
           >
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl md:text-3xl font-bold text-stone-200 mb-6">Informações de Contato</h3>
+              <h3 className="text-responsive-3xl font-bold text-stone-200 mb-4 lg:mb-6">Informações de Contato</h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3 lg:space-y-4">
                 {contactInfo.map((item, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    className="flex items-start gap-4 group justify-center lg:justify-start"
+                    className="flex items-start gap-3 lg:gap-4 group justify-center lg:justify-start"
                   >
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-12 h-12 bg-gradient-to-br from-stone-400/20 to-rose-300/20 rounded-xl flex items-center justify-center border border-stone-200/20 group-hover:border-stone-400/50 transition-all duration-300 flex-shrink-0"
+                      className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-stone-400/20 to-rose-300/20 rounded-xl flex items-center justify-center border border-stone-200/20 group-hover:border-stone-400/50 transition-all duration-300 flex-shrink-0"
                     >
-                      <item.icon className="w-6 h-6 text-stone-400" />
+                      <item.icon className="w-5 h-5 lg:w-6 lg:h-6 text-stone-400" />
                     </motion.div>
                     <div className="text-center lg:text-left">
-                      <h4 className="text-lg font-semibold text-stone-200 mb-1">{item.title}</h4>
-                      <p className="text-stone-200/80 font-medium">{item.info}</p>
-                      <p className="text-stone-200/60 text-sm">{item.subInfo}</p>
+                      <h4 className="text-responsive-lg font-semibold text-stone-200 mb-1">{item.title}</h4>
+                      <p className="text-responsive-base text-stone-200/80 font-medium">{item.info}</p>
+                      <p className="text-responsive-sm text-stone-200/60">{item.subInfo}</p>
                     </div>
                   </motion.div>
                 ))}

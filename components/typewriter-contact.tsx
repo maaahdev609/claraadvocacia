@@ -47,7 +47,7 @@ export function TypewriterContact({ className }: TypewriterContactProps) {
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY }}
-        className="inline-block w-1 h-16 bg-[#F2A6B3] ml-2"
+        className="typewriter-cursor inline-block bg-[#F2A6B3] ml-2"
       />
     </div>
   )

@@ -332,6 +332,12 @@
         })
       })
     }
+
+    // Substituir links de WhatsApp pelo novo número
+    const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]')
+    whatsappLinks.forEach((link) => {
+      link.href = "https://wa.me/5517997926061"
+    })
   }
 
   // Inicializar eventos de scroll

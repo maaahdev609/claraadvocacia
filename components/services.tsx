@@ -150,7 +150,7 @@ export function Services() {
                 </ul>
 
                 <motion.a
-                  href="https://wa.me/5517996492656"
+                  href="https://wa.me/5517997926061"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
@@ -177,7 +177,10 @@ export function Services() {
             <p className="text-responsive-lg text-stone-200/80 mb-6 lg:mb-8 max-w-2xl mx-auto">
               Nossa equipe está pronta para analisar seu caso e oferecer a melhor estratégia jurídica.
             </p>
-            <motion.button
+            <motion.a
+              href="https://wa.me/5517997926061"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{
                 scale: 1.02,
                 filter: "brightness(1.1)",
@@ -185,10 +188,10 @@ export function Services() {
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="button-responsive bg-gradient-to-r from-[#D49A9A] to-[#2B2B2B] text-white font-semibold hover:shadow-2xl transition-all duration-300"
+              className="button-responsive bg-gradient-to-r from-[#D49A9A] to-[#2B2B2B] text-white font-semibold hover:shadow-2xl transition-all duration-300 inline-block"
             >
               Agendar Consulta Gratuita
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
